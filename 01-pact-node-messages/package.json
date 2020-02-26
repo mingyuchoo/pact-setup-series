@@ -1,0 +1,25 @@
+{
+  "name": "01-pact-node-messages",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docker:build": "docker-compose --file docker-compose-pact.yml up --build",
+    "lint": "eslint --config .eslintrc.yml --fix 'src/**/*.js'",
+    "test:pact:consumer": "mocha src/consumer/__specs__/**/*.spec.js --exit",
+    "test:pact:provider": "mocha src/provider/__specs__/**/*.spec.js --exit",
+    "publish:pact": "node pacts/publish.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@pact-foundation/pact": "^9.7.0",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "mocha": "^7.0.1",
+    "prettier": "^1.19.1"
+  }
+}

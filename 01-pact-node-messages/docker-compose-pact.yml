@@ -1,0 +1,30 @@
+version: '3.7'
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: postgres
+    environment:
+      - DEBUG=false
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes:
+      - /mnt/postgres/data:/var/lib/postgresql/data
+  pact:
+    image: pactfoundation/pact-broker
+    environment:
+      - PACT_BROKER_DATABASE_HOST=postgres
+      - PACT_BROKER_DATABASE_NAME=postgres
+      - PACT_BROKER_DATABASE_PORT=5432
+      - PACT_BROKER_DATABASE_SSLMODE=disable
+      - PACT_BROKER_DATABASE_PASSWORD=postgres
+      - PACT_BROKER_DATABASE_USERNAME=postgres
+      - PACT_BROKER_BASIC_AUTH_USERNAME=admin
+      - PACT_BROKER_BASIC_AUTH_PASSWORD=admin
+      - PACT_BROKER_ALLOW_PUBLIC_READ=true
+    ports:
+      - '9292:9292'
+    depends_on:
+      - postgres
