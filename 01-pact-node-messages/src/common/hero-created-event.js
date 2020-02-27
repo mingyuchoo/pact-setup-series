@@ -1,5 +1,5 @@
 class HeroCreatedEvent {
-  constructor(name, superpower, universe, id) {
+  constructor(id, name, superpower, universe) {
     this.id = id;
     this.name = name;
     this.superpower = superpower;

@@ -3,7 +3,7 @@ const HeroCreatedEvent = require('../common/hero-created-event');
 exports.CreateHeroEventProducer = {
   produceHeroCreatedEvent: () => {
     return new Promise((resolve, reject) => {
-      resolve(new HeroCreatedEvent('Superman', 'Flying', 'DC', 42));
+      resolve(new HeroCreatedEvent(42, 'Superman', 'Flying', 'DC'));
     });
   },
 };

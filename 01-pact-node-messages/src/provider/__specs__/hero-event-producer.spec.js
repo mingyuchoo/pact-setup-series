@@ -1,8 +1,10 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
+const { describe, it } = require('mocha');
+const { expect } = require('chai');
+
+const config = require('../../../config');
 
 const { MessageProviderPact } = require('@pact-foundation/pact');
-const { CreateHeroEventProducer } = require('./hero-event-producer');
+const { CreateHeroEventProducer } = require('../hero-event-producer');
 const path = require('path');
 
 describe('message producer', () => {
@@ -14,9 +16,9 @@ describe('message producer', () => {
     log: path.resolve(process.cwd(), 'logs', 'pact.log'),
     logLevel: 'info',
     provider: 'node-message-provider',
-    pactBrokerUrl: 'http://localhost:9292',
-    pactBrokerUsername: 'admin',
-    pactBrokerPassword: 'admin',
+    pactBrokerUrl: config.pactBrokerUrl,
+    pactBrokerUsername: config.pactBrokerUsername,
+    pactBrokerPassword: config.pactBrokerPassword,
   });
 
   describe("'hero created' message producer", () => {

@@ -1,7 +1,8 @@
-version: '3.7'
+version: "3.7"
 services:
   postgres:
-    image: 'postgres:latest'
+    image: "postgres:latest"
+    restart: always
     container_name: postgres
     environment:
       - DEBUG=false
@@ -9,7 +10,7 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - '5432:5432'
+      - "5432:5432"
     volumes:
       - /mnt/postgres/data:/var/lib/postgresql/data
   pact:
@@ -25,6 +26,6 @@ services:
       - PACT_BROKER_BASIC_AUTH_PASSWORD=admin
       - PACT_BROKER_ALLOW_PUBLIC_READ=true
     ports:
-      - '9292:9292'
+      - "9292:9292"
     depends_on:
       - postgres

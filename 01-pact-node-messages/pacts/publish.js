@@ -1,12 +1,14 @@
-let publisher = require('@pact-foundation/pact-node');
-let path = require('path');
+const config = require('../config');
 
-let opts = {
+const publisher = require('@pact-foundation/pact-node');
+const path = require('path');
+
+const opts = {
   pactFilesOrDirs: [path.resolve(process.cwd(), 'pacts')],
-  pactBroker: 'http://localhost:9292',
-  pactBrokerUsername: 'admin',
-  pactBrokerPassword: 'admin',
-  consumerVersion: '3.5.0',
+  pactBroker: config.pactBrokerUrl,
+  pactBrokerUsername: config.pactBrokerUsername,
+  pactBrokerPassword: config.pactBrokerPassword,
+  consumerVersion: config.consumerVersion,
 };
 
 publisher

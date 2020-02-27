@@ -1,12 +1,12 @@
-import { describe, it } from 'mocha';
-import { expect } from 'chai';
+const { describe, it } = require('mocha');
+const { expect } = require('chai');
 
 const {
   MessageConsumerPact,
   Matchers,
   synchronousBodyHandler,
 } = require('@pact-foundation/pact');
-const { HeroEventHandler } = require('./hero-event-handler');
+const { HeroEventHandler } = require('../hero-event-handler');
 const path = require('path');
 
 describe('message consumer', () => {

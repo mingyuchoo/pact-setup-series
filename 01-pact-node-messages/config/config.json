@@ -1,0 +1,20 @@
+{
+  "development": {
+    "pactBrokerUrl": "http://localhost:9292",
+    "pactBrokerUsername": "admin",
+    "pactBrokerPassword": "admin",
+    "consumerVersion": "3.5.0"
+  },
+  "test": {
+    "pactBrokerUrl": "http://localhost:9292",
+    "pactBrokerUsername": "admin",
+    "pactBrokerPassword": "admin",
+    "consumerVersion": "3.5.0"
+  },
+  "production": {
+    "pactBrokerUrl": "http://localhost:9292",
+    "pactBrokerUsername": "admin",
+    "pactBrokerPassword": "admin",
+    "consumerVersion": "3.5.0"
+  }
+}
