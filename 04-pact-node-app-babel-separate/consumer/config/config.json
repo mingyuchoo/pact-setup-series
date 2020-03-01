@@ -1,0 +1,32 @@
+{
+  "development": {
+    "logPath": "pact_logs",
+    "logFileName": "pact.log",
+    "logLevel": "info",
+    "pactFilesOrDirs": "pact_contracts",
+    "pactBrokerUrl": "http://localhost:9292",
+    "pactBrokerUsername": "admin",
+    "pactBrokerPassword": "admin",
+    "consumerVersion": "3.5.0"
+  },
+  "test": {
+    "logPath": "pact_logs",
+    "logFileName": "pact.log",
+    "logLevel": "info",
+    "pactFilesOrDirs": "pact_contracts",
+    "pactBrokerUrl": "http://localhost:9292",
+    "pactBrokerUsername": "admin",
+    "pactBrokerPassword": "admin",
+    "consumerVersion": "3.5.0"
+  },
+  "production": {
+    "logPath": "pact_logs",
+    "logFileName": "pact.log",
+    "logLevel": "info",
+    "pactFilesOrDirs": "pact_contracts",
+    "pactBrokerUrl": "http://localhost:9292",
+    "pactBrokerUsername": "admin",
+    "pactBrokerPassword": "admin",
+    "consumerVersion": "3.5.0"
+  }
+}
