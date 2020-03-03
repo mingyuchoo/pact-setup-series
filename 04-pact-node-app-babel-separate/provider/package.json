@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "config": {
+    "pact_do_not_track": true
+  },
   "scripts": {
     "lint": "eslint --config .eslintrc.yml --fix 'src/**/*.js'",
     "dev": "nodemon --exec babel-node src/index.js",
