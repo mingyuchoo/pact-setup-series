@@ -1,16 +1,23 @@
-# 01. Pact Node Messages (Babel version)
+# Pact Broker
 
-## References
+이 프로젝트는 CDC(Consumer Driven Contract) Test를 위한 Pact Broker를 띄우는 목적입니다.
 
-- https://reflectoring.io/pact-node-messaging/
-- https://blog.shanelee.name/2016/07/19/consumer-driven-contract-testing-using-pact/
-- https://github.com/pact-foundation/pact-broker-docker
+## 준비할 환경
 
-## 테스트 순서
+- ubuntu 18.04 이상인 운영체제
+- node v12 버전 이상 설치
+- docker 설치
+- docker-compose 설치
 
-1. 메시지 구조 정의
-2. 소비자측 메시지 처리기 구현
-3. 소비자측 계약테스트 실행
-4. 소비자측 계약테스트 실행 후 나온 계약서를 Pact Brocker에 게시
-5. 공급자측 계약 생성기 구현
-6. 공급자측 계약테스트 실행
+## 실행 방법
+
+- `npm run docker:build`
+
+## 접속 방법
+
+- `http://localhost:9292`
+
+## 고려 사항
+
+pact broker를 기동하기 위해 PostgreSQL 서버를 5432 포트로 기동합니다.
+DB와 Broker에 접속하기 위한 계정 정보는 docker-compose-pact-broker.yml을 참고하세요.

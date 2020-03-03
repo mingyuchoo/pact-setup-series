@@ -1,12 +1,19 @@
 {
   "name": "broker",
   "version": "1.0.0",
-  "description": "## References",
-  "main": "index.js",
+  "description": "You can run docker containers for pact broker",
+  "main": "docker-compose-pact-broker.yml",
   "scripts": {
-    "docker:build": "docker-compose --file docker-compose-pact.yml up --build"
+    "docker:build": "docker-compose --file docker-compose-pact-broker.yml up --build --detach",
+    "docker:exec:pact-broker": "docker exec --interactive=true --tty=true pact-broker /bin/bash",
+    "docker:exec:pact-broker-db": "docker exec --interactive=true --tty=true pact-broker-db /bin/bash"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "keywords": [
+    "pact",
+    "pact-broker",
+    "docker",
+    "postgresql"
+  ],
+  "author": "mingyuchoo@gmail.com",
+  "license": "MIT License"
 }

@@ -1,24 +1,30 @@
 version: "3.7"
 services:
-  postgres:
+  pact-broker-db:
     image: "postgres:latest"
-    healthcheck:
-      test: psql postgres --command "select 1" -U postgres
-    restart: always
-    container_name: postgres
+    container_name: pact-broker-db
+    ports:
+      - "5432:5432"
+    networks:
+      - quality-net
     environment:
       - DEBUG=false
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-    ports:
-      - "5432:5432"
     volumes:
       - /mnt/postgres/data:/var/lib/postgresql/data
   pact:
     image: pactfoundation/pact-broker
+    container_name: pact-broker
+    depends_on:
+      - pact-broker-db
+    ports:
+      - "9292:9292"
+    networks:
+      - quality-net
     environment:
-      - PACT_BROKER_DATABASE_HOST=postgres
+      - PACT_BROKER_DATABASE_HOST=pact-broker-db
       - PACT_BROKER_DATABASE_NAME=postgres
       - PACT_BROKER_DATABASE_PORT=5432
       - PACT_BROKER_DATABASE_SSLMODE=disable
@@ -27,7 +33,6 @@ services:
       - PACT_BROKER_BASIC_AUTH_USERNAME=admin
       - PACT_BROKER_BASIC_AUTH_PASSWORD=admin
       - PACT_BROKER_ALLOW_PUBLIC_READ=true
-    ports:
-      - "9292:9292"
-    depends_on:
-      - postgres
+
+networks:
+  quality-net:
