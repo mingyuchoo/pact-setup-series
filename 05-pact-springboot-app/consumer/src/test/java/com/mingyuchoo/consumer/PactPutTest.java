@@ -23,9 +23,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class PactPutTest {
 
+    /**
+     * API를 제공하는 서비스 Provider를 Mocking
+     */
     @Rule
     public PactProviderRuleMk2 mockProvider = new PactProviderRuleMk2("test_provider", "localhost", 8080, this);
 
+    /**
+     * API를 사용하는 사례에 따른 계약(contract)을 구현
+     */
     @Pact(consumer = "test_consumer")
     public RequestResponsePact createPact(PactDslWithProvider builder) {
         Map<String, String> headers = new HashMap<String, String>();
@@ -43,6 +49,9 @@ public class PactPutTest {
                 .toPact();
     }
 
+    /**
+     * API를 제공하는 서비스 Provider가 계약을 따르는지 테스트할 코드 작성
+     */
     @Test
     @PactVerification()
     public void givenGet_whenPostData_shouldReturn200WithProperHeaderAndBody() {

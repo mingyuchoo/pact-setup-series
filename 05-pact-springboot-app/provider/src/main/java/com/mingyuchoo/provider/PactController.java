@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 public class PactController {
 
   @GetMapping(path = "/pact", produces = "application/json")
-  public String getPact() { return "{\"condition\": true, \"name\": \"tom\"}"; }
+  public String getPact() { return "{\"condition\": true, \"name\": \"choo\"}"; }
 
   @PostMapping(path = "/pact")
   @ResponseStatus(HttpStatus.CREATED)
