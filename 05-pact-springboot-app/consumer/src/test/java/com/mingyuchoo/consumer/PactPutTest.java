@@ -43,7 +43,7 @@ public class PactPutTest {
                 .method("POST")
                 .headers(headers)
                 .body("{\"name\": \"Michael\"}")
-                .path("/pact")
+                .path("/user")
                 .willRespondWith()
                 .status(201)
                 .toPact();
@@ -62,7 +62,7 @@ public class PactPutTest {
         String jsonBody = "{\"name\": \"Michael\"}";
 
         // when
-        ResponseEntity<String> postResponse = new RestTemplate().exchange(mockProvider.getUrl() + "/pact", HttpMethod.POST, new HttpEntity<>(jsonBody, httpHeaders), String.class);
+        ResponseEntity<String> postResponse = new RestTemplate().exchange(mockProvider.getUrl() + "/user", HttpMethod.POST, new HttpEntity<>(jsonBody, httpHeaders), String.class);
 
         // then
         assertThat(postResponse.getStatusCode().value()).isEqualTo(201);

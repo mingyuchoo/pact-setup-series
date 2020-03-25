@@ -34,7 +34,7 @@ public class PactGetTest {
         return builder
                 .given("test GET")
                 .uponReceiving("GET REQUEST")
-                .path("/pact")
+                .path("/user")
                 .method("GET")
                 .willRespondWith()
                 .status(200)
@@ -50,7 +50,7 @@ public class PactGetTest {
     @PactVerification()
     public void givenGet_whenSendRequest_shouldReturn200WithProperHeaderAndBody() {
         // when
-        ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/pact", String.class);
+        ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/user", String.class);
 
         // then
         assertThat(response.getStatusCode().value()).isEqualTo(200);
