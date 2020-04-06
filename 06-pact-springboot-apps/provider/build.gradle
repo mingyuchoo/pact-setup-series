@@ -5,6 +5,7 @@ plugins {
   id 'java'
   id 'war'
   id 'com.diffplug.gradle.spotless' version '3.28.1'
+  id "com.wiredforcode.spawn" version "0.8.2"
 }
 
 group = 'com.mingyuchoo'
@@ -35,9 +36,20 @@ test {
   useJUnitPlatform()
 }
 
+task startServer(type: SpawnProcessTask, dependsOn: 'assemble') {
+  command "java -jar ${war.archivePath}"
+  ready 'Started MainApplication'
+}
+
+task stopServer(type: KillProcessTask) {
+  
+}
+
 pact {
   serviceProviders {
       test_provider {
+        //startProviderTask = startServer
+        //terminateProviderTask = stopServer
         hasPactsFromPactBroker('http://localhost:9292/', authentication: ['Basic', 'admin', 'admin'])
     }
   }
