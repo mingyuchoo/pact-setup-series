@@ -35,26 +35,10 @@ test {
   useJUnitPlatform()
 }
 
-//// This will be called before the provider task
-//task startTheApp  {
-//	doLast {
-//		// start up your provider here
-//	}
-//}
-//
-//// This will be called after the provider task
-//task killTheApp {
-//	doLast {
-//		// kill your provider here
-//	}
-//}
-
 pact {
   serviceProviders {
-     test_provider {
-//			startProviderTask = startTheApp
-//			terminateProviderTask = killTheApp
-      hasPactsFromPactBroker('http://localhost:9292/', authentication: ['Basic', 'admin', 'admin'])
+      test_provider {
+        hasPactsFromPactBroker('http://localhost:9292/', authentication: ['Basic', 'admin', 'admin'])
     }
   }
   reports {

@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import au.com.dius.pact.consumer.Pact;
 import au.com.dius.pact.consumer.PactProviderRuleMk2;
 import au.com.dius.pact.consumer.PactVerification;
+import au.com.dius.pact.consumer.dsl.PactDslJsonBody;
 import au.com.dius.pact.consumer.dsl.PactDslWithProvider;
 import au.com.dius.pact.model.RequestResponsePact;
 import java.util.HashMap;
@@ -20,23 +21,33 @@ import org.springframework.web.client.RestTemplate;
 
 public class PactPutTest {
 
+    public static final String COSNT_CONSUMER = "test_consumer";
+    public static final String CONST_PROVIDER = "test_provider";
+    public static final String CONST_PROVIDER_HOST = "localhost";
+    public static final int CONST_PROVIDER_PORT = 8080;
+
     /** API를 제공하는 서비스 Provider를 Mocking */
     @Rule
     public PactProviderRuleMk2 mockProvider =
-            new PactProviderRuleMk2("test_provider", "localhost", 8080, this);
+            new PactProviderRuleMk2(CONST_PROVIDER, CONST_PROVIDER_HOST, CONST_PROVIDER_PORT, this);
 
-    /** API를 사용하는 사례에 따른 계약(contract)을 구현 */
+    /**
+     * API를 사용하는 사례에 따른 계약(contract)을 구현 ref -
+     * https://github.com/DiUS/pact-jvm/tree/master/consumer/pact-jvm-consumer-junit
+     */
     @Pact(consumer = "test_consumer")
     public RequestResponsePact createPact(PactDslWithProvider builder) {
         Map<String, String> headers = new HashMap<String, String>();
         headers.put("Content-Type", "application/json");
 
+        PactDslJsonBody body = new PactDslJsonBody().stringType("name").asBody();
+
         return builder.given("test POST")
                 .uponReceiving("POST REQUEST")
                 .method("POST")
-                .headers(headers)
-                .body("{\"name\": \"Michael\"}")
                 .path("/user")
+                .headers(headers)
+                .body(body)
                 .willRespondWith()
                 .status(201)
                 .toPact();
