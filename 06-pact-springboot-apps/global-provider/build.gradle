@@ -4,7 +4,7 @@ plugins {
     id "au.com.dius.pact" version "3.6.14"
     id 'java'
     id 'war'
-    id 'com.diffplug.gradle.spotless' version '4.0.0'
+    id 'com.diffplug.gradle.spotless' version '3.30.0'
     id "com.wiredforcode.spawn" version "0.8.2"
 }
 
@@ -40,10 +40,6 @@ test {
 build {
     dependsOn spotlessApply
 }
-task startServer(type: SpawnProcessTask, dependsOn: 'assemble') {
-    command "java -jar ${war.archivePath}"
-    ready 'Started MainApplication'
-}
 
 task stopServer(type: KillProcessTask) {
 
@@ -64,22 +60,20 @@ pact {
     }
 }
 
-//spotless {
-//    java {
-//        target '**/*.java'
-//
-//        importOrder 'java', 'javax', 'org', 'com', ''
-//        googleJavaFormat('1.7').aosp()
-//        removeUnusedImports()
-//        trimTrailingWhitespace()
-//        indentWithSpaces(4)
-//        endWithNewline()
-//    }
-//    format 'misc', {
-//        target '**/*.yml', '**/*.gradle', '**/*.md', '**/.gitignore'
-//
-//        trimTrailingWhitespace()
-//        indentWithSpaces(2)
-//        endWithNewline()
-//    }
-//}
+spotless {
+    java {
+        target '**/*.java'
+        importOrder 'java', 'javax', 'org', 'com', ''
+        googleJavaFormat('1.7').aosp()
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        indentWithSpaces(4)
+        endWithNewline()
+    }
+    format 'misc', {
+        target '**/*.yml', '**/*.gradle', '**/*.md', '**/.gitignore'
+        trimTrailingWhitespace()
+        indentWithSpaces(2)
+        endWithNewline()
+    }
+}

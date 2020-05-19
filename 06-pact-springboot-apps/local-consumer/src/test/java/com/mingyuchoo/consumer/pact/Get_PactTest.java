@@ -43,10 +43,7 @@ public class Get_PactTest {
                 .willRespondWith()
                 .status(200)
                 .headers(headers)
-                .body(new PactDslJsonBody()
-                        .stringType("id")
-                        .stringType("name")
-                        .asBody())
+                .body(new PactDslJsonBody().stringType("id").stringType("name").asBody())
                 .toPact();
     }
 
@@ -55,7 +52,8 @@ public class Get_PactTest {
     @PactVerification()
     public void givenGet_whenSendRequest_shouldReturn200WithProperHeaderAndBody() {
         // when
-        ResponseEntity<String> response = new RestTemplate().getForEntity(mockProvider.getUrl() + "/user", String.class);
+        ResponseEntity<String> response =
+                new RestTemplate().getForEntity(mockProvider.getUrl() + "/user", String.class);
 
         // then
         assertThat(response.getStatusCode().value()).isEqualTo(200);
