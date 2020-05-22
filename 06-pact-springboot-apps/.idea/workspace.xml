@@ -20,15 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d701b355-2a5a-4986-bbc8-91728a87a3b9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global-provider/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/global-provider/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global-provider/src/main/java/com/mingyuchoo/provider/PactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/global-provider/src/main/java/com/mingyuchoo/provider/PactController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/global-provider/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/global-provider/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local-consumer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/local-consumer/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/local-consumer/src/test/java/com/mingyuchoo/consumer/pact/Get_PactTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/local-consumer/src/test/java/com/mingyuchoo/consumer/pact/Get_PactTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/us-consumer/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/us-consumer/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/us-consumer/src/test/java/com/mingyuchoo/consumer/pact/Get_PactTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/us-consumer/src/test/java/com/mingyuchoo/consumer/pact/Get_PactTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
