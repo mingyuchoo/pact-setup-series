@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/register": "^7.18.9",
     "@pact-foundation/pact": "^10.4.0",
