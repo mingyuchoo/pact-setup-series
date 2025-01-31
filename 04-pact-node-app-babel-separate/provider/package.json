@@ -14,7 +14,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "BSD 3-Clause",
   "devDependencies": {
     "@babel/register": "^7.18.9",
     "@pact-foundation/pact": "^10.4.0",

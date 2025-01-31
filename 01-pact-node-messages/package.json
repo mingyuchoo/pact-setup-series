@@ -12,7 +12,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "BSD 3-Clause",
   "devDependencies": {
     "@pact-foundation/pact": "^10.4.0",
     "chai": "^4.3.7",
